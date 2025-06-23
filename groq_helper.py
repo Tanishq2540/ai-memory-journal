@@ -25,7 +25,6 @@ MOOD_EMOJI_MAP = {
     "energized": "⚡",
     "neutral": "📝",
     "frustrated": "😣",
-    "cheerful": "😀"
 }
 
 

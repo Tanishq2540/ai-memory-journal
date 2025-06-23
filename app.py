@@ -2,8 +2,8 @@ import sqlite3
 from groq_helper import generate_summary_and_reflection
 from dotenv import load_dotenv
 from flask import Flask, render_template, request, redirect, session, url_for
-from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
 
 load_dotenv()
 app = Flask(__name__)
@@ -82,7 +82,6 @@ def login():
         user = conn.execute("SELECT * FROM users WHERE username = ?", (username,)).fetchone()
         conn.close()
         if user and check_password_hash(user["password"], password):
-            session["user_id"] = user["id"]
             session["username"] = user["username"]
             return redirect("/journal")
         return "Invalid username or password."

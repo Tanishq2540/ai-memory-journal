@@ -1,6 +1,21 @@
-<h2>Register</h2>
-<form method="post">
-  <input name="username" placeholder="Username" required><br>
-  <input name="password" type="password" placeholder="Password" required><br>
-  <button type="submit">Register</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register - AI Memory Journal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-green-100 to-yellow-200 min-h-screen flex items-center justify-center">
+    <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
+        <h2 class="text-3xl font-bold text-center mb-6 text-green-700">Register</h2>
+        <form method="POST" class="space-y-4">
+            <input type="text" name="username" placeholder="Choose a Username" required class="w-full p-2 border border-gray-300 rounded">
+            <input type="password" name="password" placeholder="Create a Password" required class="w-full p-2 border border-gray-300 rounded">
+            <button type="submit" class="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700">Register</button>
+        </form>
+        <p class="mt-4 text-center text-sm text-gray-700">
+            Already have an account? <a href="/login" class="text-green-600 hover:underline">Login here</a>
+        </p>
+    </div>
+</body>
+</html>
