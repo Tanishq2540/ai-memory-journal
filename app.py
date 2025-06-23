@@ -82,6 +82,7 @@ def login():
         user = conn.execute("SELECT * FROM users WHERE username = ?", (username,)).fetchone()
         conn.close()
         if user and check_password_hash(user["password"], password):
+            session["user_id"] = user["id"] 
             session["username"] = user["username"]
             return redirect("/journal")
         return "Invalid username or password."
