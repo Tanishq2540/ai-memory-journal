@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Memory Journal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 font-sans">
+  <div class="max-w-2xl mx-auto py-10 px-6">
+    <h1 class="text-3xl font-bold mb-6 text-center">🧠 AI Memory Journal</h1>
+
+    <p>
+    Welcome, <strong>{{ session['username'] }}</strong>!
+    <a href="/logout">Logout</a>
+</p>
+    <!-- Journal Entry Form -->
+    <form action="/journal" method="POST" class="mb-8">
+      <textarea name="entry" rows="5" required placeholder="Write your thoughts..." class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-200"></textarea>
+      <button type="submit" class="mt-4 px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">Save Entry</button>
+    </form>
+
+    <!-- Past Entries -->
+    <h2 class="text-xl font-semibold mb-4">📜 Past Entries</h2>
+    {% for entry in entries %}
+      <div class="bg-white shadow-md rounded-lg p-4 mb-4">
+        <p class="text-sm text-gray-500">🗓️ {{ entry['date'] }}</p>
+        <p class="mt-2 whitespace-pre-wrap"><strong>✍️ Entry:</strong> {{ entry['content'] }}</p>
+        <p class="mt-2"><strong>📝 Summary:</strong> {{ entry['ai_summary'] }}</p>
+        <p class="mt-2"><strong>💬 Reflection:</strong> {{ entry['ai_reflection'] }}</p>
+<p class="mt-2 text-2xl">Mood: {{ entry['mood']|capitalize }} {{ {
+  'happy': '😄', 'sad': '😢', 'angry': '😠', 'anxious': '😰',
+  'excited': '🤩', 'calm': '😌', 'tired': '😴', 'stressed': '😫',
+  'confused': '😕', 'motivated': '💪', 'grateful': '🙏', 'lonely': '😔',
+  'relaxed': '😌', 'confident': '💪', 'energized': '⚡', 'neutral': '📝', 'uneasy': '😟', 'frustrated': '😣', 'cheerful': '😀'
+}[entry['mood']] if entry['mood'] in [
+  'happy', 'sad', 'angry', 'anxious', 'excited', 'calm', 'tired',
+  'stressed', 'confused', 'motivated', 'grateful', 'lonely',
+  'relaxed', 'confident', 'energized', 'neutral', 'uneasy', 'frustrated', 'cheerful'
+] else '📝' }}</p>
+      </div>
+    {% else %}
+      <p class="text-gray-500">No entries yet. Start writing!</p>
+    {% endfor %}
+  </div>
+</body>
+</html>
