@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from flask import Flask, render_template, request, redirect, session, url_for
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
+from init_db import init_db
 
 load_dotenv()
 app = Flask(__name__)
@@ -96,4 +97,5 @@ def logout():
 
 
 if __name__ == "__main__":
+    init_db()
     app.run(debug=True)
