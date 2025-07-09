@@ -10,6 +10,12 @@ A journaling web app that uses the **Groq LLM API** to generate personalized sum
 
 ---
 
+## 🔗 Video Demo
+
+[🌐 View the Video](https://drive.google.com/file/d/1Cgr0tjUXf0o1x4q58qhtJP8WYyG_y_qc/view?usp=sharing)
+
+---
+
 ## ✨ Features
 
 - 🛡️ Secure user registration, login, and session management  
